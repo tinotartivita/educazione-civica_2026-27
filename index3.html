@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1E2761">
+<title>Scheda di lavoro – Lezione 1</title>
+<style>
+:root{color-scheme:light;--n:#1E2761;--a:#1E2761;--g:#4A5275;--b:#F4F6FB;--l:#B9C2DE;--ff:system-ui,-apple-system,"Segoe UI",Roboto,Verdana,Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:18px/1.6 var(--ff);color:#16181F;background:#fff}
+header{background:var(--n);color:#fff;padding:16px 18px}
+header h1{margin:0 0 10px;font:700 24px/1.3 var(--ff)}
+.id{display:flex;flex-wrap:wrap;gap:10px}
+.id input{flex:1 1 200px;min-height:48px;padding:10px 12px;border:0;border-radius:8px;font:inherit}
+.how{margin:12px 0 0;font-size:16px;line-height:1.5;color:#E3E7F7}
+nav{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:10px 18px;background:var(--b);position:sticky;top:0;z-index:5;border-bottom:2px solid var(--l);-webkit-overflow-scrolling:touch}
+nav button{flex:none;min-height:46px;border:2px solid var(--c);background:#fff;color:var(--c);border-radius:24px;padding:8px 18px;font:700 17px var(--ff);cursor:pointer}
+nav button.on{background:var(--c);color:#fff}
+main{max-width:900px;margin:0 auto;padding:18px 18px 130px}
+section{display:none}section.on{display:block}
+h2{font:700 28px/1.25 var(--ff);color:var(--a);margin:8px 0 4px}
+.meta{color:var(--a);font-weight:700;font-size:17px;margin-bottom:14px}
+.pn{background:#FFF4CC;border:2px solid #E0A800;border-radius:12px;padding:14px 16px;margin:14px 0}
+.pn b{color:#14193F}
+.tip{background:#E3EEFA;border-color:#2F66AE}
+.sc{background:#FBE8A6}
+blockquote{margin:14px 0;padding:16px 18px;border:3px solid var(--a);border-radius:12px;font-size:19px;line-height:1.65}
+.q{display:flex;gap:12px;margin:28px 0 10px;font-weight:700;font-size:19px;line-height:1.5}
+.q i{flex:none;width:38px;height:38px;border-radius:50%;background:var(--a);color:#fff;font:700 18px/38px var(--ff);text-align:center;font-style:normal}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin:10px 0}
+.f{background:var(--b);border:2px solid var(--l);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.f>span,.f small,.fl span{color:var(--g);font-size:16px;line-height:1.45}
+.f b{font-size:18px}
+.ok{background:#E3F4EE;border-color:#0F7B6C}.ko{background:#FDEBE7;border-color:#B5483A}
+textarea,input[type=text]{width:100%;font:inherit;font-size:18px;padding:10px 12px;border:2px solid var(--l);border-radius:8px;background:#fff;min-height:48px;color:#16181F}
+textarea{resize:vertical;min-height:96px}
+textarea:focus,input:focus{outline:3px solid #7FA6E8;outline-offset:1px}
+input[type=radio],input[type=checkbox]{width:26px;height:26px;flex:none;accent-color:var(--a);margin:0}
+input.i{display:inline-block;width:8em;min-height:40px;padding:4px 8px}
+input.n{width:3.2em;display:inline-block;text-align:center;padding:6px}
+.fl{display:flex;flex-direction:column;gap:4px;text-align:left}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:flex;align-items:center;gap:8px;min-height:48px;padding:6px 16px;border:2px solid var(--l);border-radius:26px;background:#fff;cursor:pointer;font-weight:600}
+.pill:has(input:checked){background:#DCE6FB;border-color:var(--a)}
+.lab{font-size:16px;font-weight:700;color:var(--g)}
+.tw{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th{background:var(--a);color:#fff;text-align:left;padding:10px;font-size:16px}
+td{border:1px solid var(--l);padding:6px;vertical-align:middle}
+td.s{font-weight:700;padding:10px}
+.keep table{min-width:0}
+td label{display:inline-flex;align-items:center;gap:6px;margin-right:12px;min-height:44px}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.ch span{border:2px solid var(--a);border-radius:22px;padding:6px 16px;background:#fff;font-weight:600;font-size:17px}
+.ck,.f label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.ck{background:#E3EEFA;border:2px solid #2F66AE;border-radius:12px;padding:12px 14px}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0}.mt>div{display:grid;gap:10px;align-content:start}
+.lk{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.lk a{display:inline-flex;align-items:center;min-height:46px;padding:6px 16px;border:2px solid #2F66AE;border-radius:24px;background:#fff;color:#14407A;font-weight:700;text-decoration:none}
+.lk a::after{content:" ↗";margin-left:6px}
+.pager{display:flex;gap:12px;justify-content:space-between;margin:36px 0 0}
+.pager button{flex:1;min-height:52px;border:2px solid var(--a);background:#fff;color:var(--a);border-radius:12px;font:700 17px var(--ff);cursor:pointer}
+footer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--l);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;z-index:6}
+footer button{flex:1;min-height:52px;background:var(--n);color:#fff;border:0;border-radius:12px;padding:10px 14px;font:700 17px var(--ff);cursor:pointer}
+footer button.o{background:#fff;color:var(--n);border:2px solid var(--n)}
+@media(max-width:700px){
+ body{font-size:18px}
+ header h1{font-size:22px}
+ .mt{grid-template-columns:1fr}
+ .tw:not(.keep){overflow:visible}
+ .tw:not(.keep) table,.tw:not(.keep) tbody,.tw:not(.keep) tr,.tw:not(.keep) td{display:block;width:100%;min-width:0}
+ .tw:not(.keep) thead{display:none}
+ .tw:not(.keep) tr{border:2px solid var(--l);border-radius:12px;padding:10px 12px;margin:0 0 14px;background:var(--b)}
+ .tw:not(.keep) td{border:0;padding:6px 0}
+ .tw:not(.keep) td:not(.s)::before{content:attr(data-label);display:block;font-size:15px;font-weight:700;color:var(--g);margin-bottom:2px}
+ .tw:not(.keep) td.s{font-size:19px}
+}
+@media print{nav,footer,.pager,.how{display:none}section{display:block!important;page-break-before:always}header{color:#000;background:#fff}.id input{border:1px solid #999}.lk a::after{content:""}}
+</style></head>
+<body>
+<header><h1>Scheda di lavoro 1 · Diritto · Lezione 1</h1>
+<div class="id"><input type="text" placeholder="Cognome e nome"><input type="text" placeholder="Classe (5^ CAR – AFM)"><input type="text" placeholder="Data"></div>
+<p class="how"><b>Come lavorare.</b> Svolgi la scheda a casa, in autonomia, dopo la lezione. Usa le slide della lezione e quelle di approfondimento. Scrivi le risposte nei riquadri, con parole tue. Quando hai finito premi «Salva le mie risposte» e invia il file all’insegnante. Le risposte si salvano anche da sole su questo telefono o computer.</p></header>
+<nav id="nav"></nav><main id="m"></main>
+<footer><button id="sv">Salva le mie risposte</button><button class="o" id="pr">Stampa / PDF</button></footer>
+<script>
+const AC=["#1E2761","#0F7B6C","#B5483A","#6B4C9A","#2E6DB4","#A66500"];
+const D=[{"t":"Dalle macerie all’economia","m":"Lezione 1","b":[["p","ripensa alle prime slide della lezione: «Partiamo da voi» e «Europa 1945: macerie e una scelta». Rispondi con parole tue."],["q",1,"Se domani l’Italia uscisse dall’UE, cosa cambierebbe nella tua vita? Spunta le voci del sondaggio che ti riguardano di più e spiega perché."],["chk",["Studiare e viaggiare","Pagare in euro","Lavorare all’estero","Prezzi e consumi","Diritti e tutele","Sicurezza"]],["ta",["Il motivo della tua scelta (2 righe)"],2],["q",2,"Europa 1945. Vero o falso? Segna V o F."],["vf",["Le due guerre mondiali si sono svolte in poco più di trent’anni (1914–1945).","Dopo il 1945 si decide di legare tra loro economie e istituzioni per rendere la guerra impensabile.","Nazionalismi e rivalità tra Stati non hanno avuto alcun ruolo nelle guerre."],["V","F"],0],["q",3,"Perché l’integrazione europea parte dall’economia? Spiega con parole tue che cosa significa «interdipendenza»."],["ta",["La mia risposta (3 righe)"]],["tip","Aiuto","carbone e acciaio erano le materie prime dell’industria bellica e della ricostruzione."],["q",4,"Torna alla domanda iniziale: «Se domani l’Italia uscisse dall’UE, cosa cambierebbe nella tua vita?». Dopo aver visto che cosa è successo nel 1945, aggiungeresti o cambieresti qualcosa nella tua risposta?"],["ta",["La mia risposta ora (2 righe)"],2]]},{"t":"Il Manifesto di Ventotene (1941)","m":"Lezione 1 · approfondimento","b":[["p","usa le slide di approfondimento «Il Manifesto di Ventotene». Per il testo integrale puoi consultare il portale UE e gli Archivi storici dell’UE (Firenze)."],["q",1,"Il confino. Vero o falso? Segna V o F e scrivi perché."],["vf",["Il confino era una misura fascista: gli oppositori venivano allontanati dalle loro città.","A Ventotene c’erano solo antifascisti con le stesse idee.","Il Manifesto nasce dalla discussione di alcuni antifascisti sul futuro dell’Europa."],["V","F"],1],["q",2,"Gli autori: abbina ogni persona alla sua descrizione."],["mt",["1 · Altiero Spinelli (1907–1986)","2 · Ernesto Rossi (1897–1967)","3 · Eugenio Colorni (1909–1944)"],["A · Economista e antifascista, condannato dal regime","B · Filosofo: cura la prefazione; ucciso dai fascisti a Roma","C · Federalista; poi deputato europeo e Commissario europeo (1970–76)","D · Primo presidente dell’Alta Autorità della CECA"]],["q",3,"Diagnosi o proposta? Segna a quale parte del Manifesto appartiene ogni idea."],["vf",["Gli Stati nazionali sovrani sono in rivalità permanente.","Una federazione europea con un governo comune.","Da soli, gli Stati non garantiscono la pace.","Poteri federali su difesa, moneta e politica estera; agli Stati resta la gestione degli affari interni."],["Diagnosi","Proposta"],0],["q",4,"La «nuova linea di divisione» del Manifesto non è più destra contro sinistra. Tra chi e chi passa, secondo gli autori?"],["ta",["La mia risposta"]],["q",5,"Perché gli autori vedono negli Stati nazionali sovrani una causa di guerra?"],["ta",["La mia risposta"]],["q",6,"Parole chiave: scegli due parole e scrivi che cosa significano."],["ch",["Confino","Federalismo","Sovranazionale"]],["ta",["Parola 1 e significato","Parola 2 e significato"]]]},{"t":"La Dichiarazione Schuman e la CECA","m":"Lezione 1 · approfondimento","b":[["p","usa le slide di approfondimento «La Dichiarazione Schuman». Per il testo integrale puoi consultare il portale ufficiale dell’UE e gli Archivi storici (Firenze)."],["q",1,"Europa 1950: il contesto. Vero o falso?"],["vf",["L’Europa è divisa in blocchi: è la guerra fredda.","Nel 1950 la pace in Europa è ormai sicura e stabile.","Carbone e acciaio sono risorse chiave di Ruhr e Lorena.","Bisogna ricostruire la Germania senza temerla."],["V","F"],0],["q",2,"La proposta in quattro punti. Completa: carbone e acciaio di Francia e Germania sotto una ___ comune; organizzazione aperta a tutti gli altri ___ europei; obiettivo: rendere la guerra franco-tedesca «materialmente ___»; metodo: «___ di fatto», con realizzazioni concrete."],["q",3,"I protagonisti: abbina ogni persona al suo ruolo."],["mt",["1 · Robert Schuman (1886–1963)","2 · Jean Monnet (1888–1979)","3 · Alcide De Gasperi (1881–1954)","4 · Konrad Adenauer (1876–1967)"],["A · Presidente del Consiglio italiano: sostiene il progetto europeo","B · Ministro degli Esteri francese: presenta la proposta il 9 maggio 1950","C · Cancelliere della Germania Ovest: accetta la proposta","D · Ispira e redige il progetto; primo presidente dell’Alta Autorità"]],["q",4,"Dalla Dichiarazione alla CECA: metti in ordine da 1 (il più antico) a 5 (il più recente)."],["ord",[["Entra in vigore la CECA","23 luglio 1952"],["Dichiarazione Schuman","9 maggio 1950"],["Scade il Trattato CECA","23 luglio 2002"],["Trattato di Parigi tra sei Stati","18 aprile 1951"],["Trattati di Roma","25 marzo 1957"]]],["q",5,"Perché Schuman parte da carbone e acciaio e non da una federazione?"],["ta",["La mia risposta"]]]},{"t":"Due strade, un obiettivo: confronto","m":"Lezione 1","b":[["p","confronta le due idee, come nella slide «Le idee dei pionieri a confronto». Poi esprimi un tuo giudizio con motivi."],["q",1,"Completa la tabella di confronto."],["tbl",["Idea","Manifesto di Ventotene (1941)","Dichiarazione Schuman (1950)"],[["=Chi propone","",""],["=In quale contesto nasce","",""],["=Che cosa propone","",""],["=Metodo: tutto subito o piccoli passi?","",""]]],["q",2,"Le due idee sono alternative o possono completarsi? Scrivi due motivi."],["ta",["I miei motivi"]],["q",3,"Il 9 maggio si celebra la Festa dell’Europa. Guarda le date nella slide «Le idee dei pionieri a confronto»: quale evento ricorda e perché proprio questa data?"],["ta",["La mia risposta (2 righe)"],2],["q",4,"Quale delle due idee ti sembra più utile per l’Europa di oggi? Motiva con un fatto."],["pk",["Ventotene","Schuman","Entrambe"]],["ta",["Il motivo e il fatto"]]]},{"t":"Verifica, ricerca e riflessione","m":"Lezione 1","b":[["p","rispondi prima alle domande 1–5 da solo; poi svolgi la ricerca, la riflessione e il primo bilancio su pro e contro (domande 6–9), usando i materiali del corso e le fonti che trovi. Alla fine indica le fonti che hai usato (domanda 10)."],["mc",[["Quale proposta del 1950 mise in comune carbone e acciaio?",["Manifesto di Ventotene","Dichiarazione Schuman","Trattati di Roma"]],["Chi sono gli autori del Manifesto di Ventotene?",["Schuman e Monnet","Spinelli e Rossi, con Colorni","De Gasperi e Adenauer"]],["Quale metodo propone Schuman?",["una federazione europea subito","la «solidarietà di fatto» con realizzazioni concrete","il ritorno agli Stati nazionali"]],["Quale NON era un’istituzione della CECA?",["Alta Autorità","Assemblea comune","Commissione europea"]]]],["q",5,"Perché l’integrazione europea parte da carbone e acciaio? Rispondi in 3 righe."],["ta",["La mia risposta"]],["q",6,"Ricerca. Scegli un tema tra quelli visti e approfondiscilo con una piccola ricerca."],["pk",["Dalle macerie del 1945 all’economia","Manifesto di Ventotene","Dichiarazione Schuman e CECA"]],["tip","Come procedere","rileggi slide e appunti, poi cerca qualche informazione in più su un sito o un libro affidabile (portale UE, archivi storici, enciclopedie, quotidiani)."],["ta",["Che cosa ho trovato (3–4 righe, con parole mie)","Che cosa abbiamo visto in classe su questo tema","Che cosa ho imparato in più con la ricerca"],3],["q",7,"Riflessione. Ora prova a farti un’idea dei temi della lezione. Rispondi con parole tue, spiegando i motivi e portando almeno un fatto o una data."],["ta",["Prima di questa lezione pensavo che l’Unione europea… (2–3 righe)","Dopo la lezione e la ricerca penso che… Che cosa mi ha fatto cambiare idea, o confermato quella che avevo? (3–4 righe)"],3],["ta",["Nel 1945 si sceglie di legare le economie dei Paesi per rendere la guerra impensabile: secondo te è stata una scelta giusta ed efficace? Perché? (4–5 righe)"],5],["ta",["Manifesto di Ventotene («una federazione europea») e Dichiarazione Schuman («piccoli passi», solidarietà di fatto): quale strada ti convince di più, oppure come si completano? (4–5 righe)"],5],["ta",["Che cosa significa, per te e per la tua vita di oggi, far parte di un’Europa unita? Rileggi la tua risposta alla domanda iniziale della Parte 1. (3–4 righe)"],4],["ta",["Un dubbio, una domanda o un argomento che vorrei approfondire (1–2 righe)"],2],["q",8,"Verso le ragioni di far parte dell’UE: pro e contro. Dopo aver visto perché è nata l’integrazione europea, prova a fare un primo bilancio dei vantaggi e degli svantaggi di far parte dell’UE. Non servono risposte definitive: è una posizione provvisoria, che potrai rivedere nelle prossime lezioni."],["tip","Per iniziare","ripensa alle voci del sondaggio della Parte 1 (studiare e viaggiare, pagare in euro, lavorare all’estero, prezzi e consumi, diritti e tutele, sicurezza) e al valore della pace dopo il 1945. Per i dubbi e le critiche puoi anche cercarne una in una fonte affidabile."],["ta",["Vantaggi: scrivine almeno due e spiega perché sono un vantaggio","Svantaggi o dubbi: scrivine almeno due e spiega perché possono esserlo"],4],["ta",["Tra i punti che hai scritto, quale pesa di più secondo te e perché? Che cosa dovresti controllare (un dato, un documento) per esserne sicuro?"],4],["q",9,"Oggi, in base a quello che so, penso che far parte dell’UE sia:"],["pk",["più vantaggioso che svantaggioso","in equilibrio tra pro e contro","più svantaggioso che vantaggioso","non so ancora"]],["ta",["Il motivo principale della mia posizione (3 righe)"],3],["q",10,"Le fonti che ho usato (slide e approfondimenti del corso, appunti, siti, libri, video…)."],["ta",["Elenca le fonti: per ognuna scrivi chi l’ha pubblicata, il titolo, la data e dove l’hai trovata (link o libro). Se hai chiesto aiuto a un’intelligenza artificiale o a un’altra persona, scrivilo."],4]]}];
+
+let K=0;const inl=s=>s.replace(/_{3,}/g,'<input class="i" type="text" aria-label="risposta">');
+const rd=()=>"r"+(++K);
+const pill=(n,x)=>`<label class="pill"><input type="radio" name="${n}"> ${x}</label>`;
+const cell=(c,h,keep)=>{
+ if(c[0]=="=")return `<td class="s">${c.slice(1)}</td>`;
+ if(c=="SN"){const n=rd();return `<td data-label="${h}"><label><input type="radio" name="${n}"> Sì</label><label><input type="radio" name="${n}"> No</label></td>`}
+ if(h=="A o P"){const n=rd();return `<td data-label="${h}"><label><input type="radio" name="${n}"> A</label><label><input type="radio" name="${n}"> P</label></td>`}
+ const num=/^(Anno|N°|Variazione)$/.test(h)?' inputmode="numeric"':"";
+ return keep||h.length<8?`<td data-label="${h}"><input type="text"${num}></td>`:`<td data-label="${h}"><textarea rows="2"></textarea></td>`};
+const R={
+p:t=>`<div class="pn"><b>Cosa devi fare:</b> ${t}</div>`,tip:(l,t)=>`<div class="pn tip"><b>${l}:</b> ${t}</div>`,note:t=>`<div class="pn sc">${t}</div>`,
+q:(n,t)=>`<div class="q"><i>${n}</i><span>${inl(t)}</span></div>`,
+ta:(a,r=3)=>`<div class="g">${a.map(l=>`<label class="f"><span>${l}</span><textarea rows="${r}"></textarea></label>`).join("")}</div>`,
+tbl:(h,rows,keep)=>`<div class="tw${keep?" keep":""}"><table><thead><tr>${h.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>cell(c,h[i],keep)).join("")}</tr>`).join("")}</tbody></table></div>`,
+ch:a=>`<div class="ch">${a.map(x=>`<span>${x}</span>`).join("")}</div>`,
+vf:(a,o,w)=>`<div class="g">${a.map(s=>{const n=rd();return `<div class="f"><b>${s}</b><div class="opts">${o.map(x=>pill(n,x)).join("")}</div>${w?'<input type="text" placeholder="Perché:">':""}</div>`}).join("")}</div>`,
+chk:a=>`<div class="g">${a.map(x=>`<label class="ck"><input type="checkbox"> ${x}</label>`).join("")}</div>`,
+ord:a=>`<div class="g">${a.map(([t,d])=>`<div class="f"><b>${t}</b><small>${d}</small><label>N° <input class="n" type="text" maxlength="1" inputmode="numeric"></label></div>`).join("")}</div>`,
+mt:(l,r)=>`<div class="mt"><div>${l.map(x=>`<div class="f"><b>${x}</b><label>→ lettera <input class="n" type="text" maxlength="1"></label></div>`).join("")}</div><div>${r.map(x=>`<div class="f">${x}</div>`).join("")}</div></div>`,
+mc:a=>`<div class="g">${a.map(([q,o],k)=>{const n=rd();return `<div class="f"><b>${k+1}. ${q}</b><div class="opts">${o.map((x,j)=>pill(n,"abc"[j]+") "+x)).join("")}</div></div>`}).join("")}</div>`,
+pk:a=>{const n=rd();return `<div class="opts">${a.map(x=>pill(n,x)).join("")}</div>`}};
+const m=document.getElementById("m"),nav=document.getElementById("nav"),KEY="uda-lezione1-v5";
+function show(i){[...m.children].forEach((s,j)=>s.classList.toggle("on",i==j));[...nav.children].forEach((b,j)=>b.classList.toggle("on",i==j));scrollTo(0,0);try{nav.children[i].scrollIntoView({inline:"center",block:"nearest"})}catch(e){}}
+function fields(){return [...document.querySelectorAll("input,textarea")]}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(fields().map(e=>e.type=="checkbox"||e.type=="radio"?e.checked:e.value)))}catch(e){}}
+function build(){D.forEach((d,i)=>{const s=document.createElement("section");s.style.setProperty("--a",AC[i]);
+ const pg=`<div class="pager">${i>0?`<button data-go="${i-1}">← Parte ${i}</button>`:"<span></span>"}${i<D.length-1?`<button data-go="${i+1}">Parte ${i+2} →</button>`:""}</div>`;
+ s.innerHTML=`<h2>Parte ${i+1} · ${d.t}</h2><div class="meta">${d.m}</div>`+d.b.map(b=>R[b[0]](...b.slice(1))).join("")+pg;m.appendChild(s);
+ const t=document.createElement("button");t.textContent="Parte "+(i+1);t.style.setProperty("--c",AC[i]);nav.appendChild(t)})}
+function restore(){try{const v=JSON.parse(localStorage.getItem(KEY)||"null");if(v&&v.length==fields().length)fields().forEach((e,i)=>{if(e.type=="checkbox"||e.type=="radio")e.checked=!!v[i];else if(v[i]!=null)e.value=v[i]})}catch(e){}}
+function dl(){const cl=document.documentElement.cloneNode(true),els=cl.querySelectorAll("input,textarea");
+fields().forEach((e,i)=>{const c=els[i];if(e.type=="checkbox"||e.type=="radio"){e.checked?c.setAttribute("checked",""):c.removeAttribute("checked")}else if(e.tagName=="TEXTAREA")c.textContent=e.value;else c.setAttribute("value",e.value)});
+cl.querySelector("body").dataset.baked="1";
+const id=document.querySelectorAll("header input")[0].value.trim().replace(/[^\wÀ-ÿ]+/g,"_")||"studente";
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["<!doctype html>\n"+cl.outerHTML],{type:"text/html"}));a.download="Lezione1_"+id+".html";document.body.appendChild(a);a.click();a.remove();}
+if(!document.body.dataset.baked){build();restore()}
+document.addEventListener("input",save);document.addEventListener("change",save);
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)show(+g.dataset.go)});
+[...nav.children].forEach((b,i)=>b.onclick=()=>show(i));
+document.getElementById("sv").onclick=dl;document.getElementById("pr").onclick=()=>print();
+{const k=[...m.children].findIndex(s=>s.classList.contains("on"));show(k<0?0:k)}
+</script></body></html>
